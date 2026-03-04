@@ -33,6 +33,9 @@ nav {
   align-items: center;
   gap: 24px;
   margin-right: 2rem;
+  #menuClose { display: none; }
+
+  
 }
 
 nav a {
@@ -82,7 +85,7 @@ nav a {
     margin-left: 2rem;
     font-size: 1rem;
   }
-  button#menuToggle {
+  button#menuToggle, #menuClose{
     display: block !important;
   }
   button#menuToggle.hidden {
