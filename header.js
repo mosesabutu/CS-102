@@ -60,9 +60,7 @@ nav a {
   cursor: pointer;
   z-index: 10001;
 }
-#menuClose {
-  display: none;
-}
+
 
 .nav-overlay {
   display: none;
@@ -100,7 +98,7 @@ nav a {
     height: 100vh;
     background-color: #2c2a28;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     padding: 80px 20px;
     transition: 0.3s ease-in-out;
     margin-right: 0;
@@ -109,8 +107,7 @@ nav a {
     #menuClose {
       background: none;
       border: none;
-      margin-right: 2rem;
-
+      text-align: start;
       color: #d4c092;
       font-size: 1.5rem;
       cursor: pointer;
@@ -149,7 +146,7 @@ nav a {
         <nav id="nav">
          <button class="menu-toggle-close" id="menuClose">
         <i class="fa-solid fa-xmark"></i>
-      </button>
+        </button>
           <a href="/">Home</a>
           <a href="/product/index.html">Products</a>
           <a href="/events/index.html">Events</a>

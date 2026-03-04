@@ -307,13 +307,6 @@ const myProducts = [
   },
 ];
 
-// State variable
-let cartItems = 0;
-let wishlistItems = 0;
-let cartItemsNames = 0;
-let wishlistItemsNames = 0;
-let totalPrice = 0;
-
 // 3. Core Display Function
 function renderProducts(productsToDisplay) {
   const grid = document.getElementById("product-grid");
@@ -348,7 +341,7 @@ function renderProducts(productsToDisplay) {
             </div>
             <div class="button-group">
                 <button class="buy-now-btn" onclick="buyNow('${product.name}')">BUY NOW</button>
-                <button class="shop-btn" onclick="updateCart('${product.name}', '${product.price}')">ADD TO CART</button>
+                <button class="shop-btn" onclick="updateCart('${product.name}', '${product.price}', '${product.img}')">ADD TO CART</button>
             </div>
         `;
     grid.appendChild(card);
@@ -363,13 +356,20 @@ function selectSize(btn) {
     .forEach((b) => b.classList.remove("selected"));
   btn.classList.add("selected");
 }
+// State variable
+let cartItems = JSON.parse(localStorage.getItem("myCart")) || [];
+let wishlistItems = 0;
+let cartItemsNames = [];
+let wishlistItemsNames = 0;
+let totalPrice = 0;
 
-function updateCart(name, price) {
-  // 1. Update Count
-  cartItems++;
-  document.getElementById("cart-count").innerText = cartItems;
+function updateCart(name, price, img) {
+  const newItem = { name: name, price: price, img: img };
+  cartItems.push(newItem);
+  // document.getElementById("cart-count").innerText = cartItems;
 
-  // 2. Update Total Price
+  localStorage.setItem("myCart", JSON.stringify(cartItems));
+
   const numericPrice = Number(price.replace("$", ""));
   totalPrice += numericPrice;
 
@@ -378,7 +378,6 @@ function updateCart(name, price) {
     totalDisplay.innerText = `$${totalPrice.toFixed(2)}`;
   }
 
-  // 3. Update Drawer List
   const list = document.getElementById("cart-items-list");
   if (list) {
     const item = document.createElement("div");
@@ -386,6 +385,7 @@ function updateCart(name, price) {
     item.innerHTML = `<span>${name}</span> <span>${price}</span>`;
     list.appendChild(item);
   }
+  console.log(newItem);
 }
 
 function updateWishlist(btn, name) {
@@ -438,21 +438,4 @@ buttons.forEach((button) => {
 // 5. Execution
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(myProducts);
-});
-
-// script.js
-
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("nav");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
-
-  if (navLinks.classList.contains("active")) {
-    menuToggle.querySelector("i").classList.remove("fa-bars");
-    menuToggle.querySelector("i").classList.add("fa-x");
-  } else {
-    menuToggle.querySelector("i").classList.remove("fa-x");
-    menuToggle.querySelector("i").classList.add("fa-bars");
-  }
 });
