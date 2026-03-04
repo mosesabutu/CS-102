@@ -304,6 +304,14 @@ section {
       }
     }
   }
+
+  .trustees {
+    button {
+      padding: 1rem;
+      font-size: 1rem;
+      width: 10rem;
+    }
+  }
 }
 .trustees {
   display: flex;
