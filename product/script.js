@@ -1,8 +1,7 @@
-// 30 Specific Unique Products
 const myProducts = [
   {
     name: "Urban Bomber Jacket",
-    price: "$120",
+    price: 12,
     cat: "Clothes",
     img: "images/bomber.jpg",
     avgRating: 4.5,
@@ -12,7 +11,7 @@ const myProducts = [
   },
   {
     name: "Diamond Studs",
-    price: "$250",
+    price: 25,
     cat: "Jewelry",
     img: "images/studs.jpg",
     avgRating: 4.5,
@@ -22,7 +21,7 @@ const myProducts = [
   },
   {
     name: "Retro High-Tops",
-    price: "$110",
+    price: 11,
     cat: "Shoes",
     img: "images/high-tops.jpg",
     avgRating: 4.5,
@@ -32,7 +31,7 @@ const myProducts = [
   },
   {
     name: "Midnight Clutch",
-    price: "$85",
+    price: 85,
     cat: "Handbags",
     img: "images/clutch.jpg",
     avgRating: 4.5,
@@ -42,7 +41,7 @@ const myProducts = [
   },
   {
     name: "Distressed Denim",
-    price: "$90",
+    price: 90,
     cat: "Clothes",
     img: "images/denim.jpg",
     avgRating: 4.5,
@@ -52,7 +51,7 @@ const myProducts = [
   },
   {
     name: "Cuban Link Bracelet",
-    price: "$65",
+    price: 65,
     cat: "Jewelry",
     img: "images/cubanlink.jpg",
     avgRating: 4.5,
@@ -62,7 +61,7 @@ const myProducts = [
   },
   {
     name: "Leather Loafers",
-    price: "$140",
+    price: 14,
     cat: "Shoes",
     img: "images/loafers.jpg",
     avgRating: 4.5,
@@ -72,7 +71,7 @@ const myProducts = [
   },
   {
     name: "Suede Crossbody",
-    price: "$115",
+    price: 11,
     cat: "Handbags",
     img: "images/crossbody.jpg",
     avgRating: 4.5,
@@ -82,7 +81,7 @@ const myProducts = [
   },
   {
     name: "Silk Slip Dress",
-    price: "$130",
+    price: 13,
     cat: "Clothes",
     img: "images/silk.jpg",
     avgRating: 4.5,
@@ -92,7 +91,7 @@ const myProducts = [
   },
   {
     name: "Pearl Drop Earrings",
-    price: "$180",
+    price: 18,
     cat: "Jewelry",
     img: "images/pearl.jpg",
     avgRating: 4.5,
@@ -102,7 +101,7 @@ const myProducts = [
   },
   {
     name: "Mesh Runners",
-    price: "$95",
+    price: 95,
     cat: "Shoes",
     img: "images/mesh.jpg",
     avgRating: 4.5,
@@ -112,7 +111,7 @@ const myProducts = [
   },
   {
     name: "Structured Tote",
-    price: "$210",
+    price: 21,
     cat: "Handbags",
     img: "images/tote.jpg",
     avgRating: 4.5,
@@ -122,7 +121,7 @@ const myProducts = [
   },
   {
     name: "Oversized Hoodie",
-    price: "$75",
+    price: 75,
     cat: "Clothes",
     img: "images/hoodie.jpg",
     avgRating: 4.5,
@@ -132,7 +131,7 @@ const myProducts = [
   },
   {
     name: "Gold Band Ring",
-    price: "$50",
+    price: 50,
     cat: "Jewelry",
     img: "images/bandring.jpg",
     avgRating: 4.5,
@@ -146,7 +145,7 @@ const myProducts = [
   },
   {
     name: "Platform Boots",
-    price: "$160",
+    price: 16,
     cat: "Shoes",
     img: "images/boots.jpg",
     avgRating: 4.5,
@@ -156,7 +155,7 @@ const myProducts = [
   },
   {
     name: "Mini Satin Bag",
-    price: "$60",
+    price: 60,
     cat: "Handbags",
     img: "images/satinbag.jpg",
     avgRating: 4.5,
@@ -166,7 +165,7 @@ const myProducts = [
   },
   {
     name: "Cargo Joggers",
-    price: "$85",
+    price: 85,
     cat: "Clothes",
     img: "images/joggers.jpg",
     avgRating: 4.5,
@@ -176,7 +175,7 @@ const myProducts = [
   },
   {
     name: "Silver Choker",
-    price: "$45",
+    price: 45,
     cat: "Jewelry",
     img: "images/choker.jpg",
     avgRating: 4.5,
@@ -186,7 +185,7 @@ const myProducts = [
   },
   {
     name: "Canvas Slip-ons",
-    price: "$55",
+    price: 55,
     cat: "Shoes",
     img: "images/canvas.jpg",
     avgRating: 4.5,
@@ -196,7 +195,7 @@ const myProducts = [
   },
   {
     name: "Quilted Shoulder Bag",
-    price: "$190",
+    price: 190,
     cat: "Handbags",
     img: "images/shoulderbag.jpeg",
     avgRating: 4.5,
@@ -206,7 +205,7 @@ const myProducts = [
   },
   {
     name: "Pleated Midi Skirt",
-    price: "$70",
+    price: 170,
     cat: "Clothes",
     img: "images/midiskirt.jpg",
     avgRating: 4.5,
@@ -216,7 +215,7 @@ const myProducts = [
   },
   {
     name: "Emerald Pendant",
-    price: "$320",
+    price: 32,
     cat: "Jewelry",
     img: "images/pendant.jpg",
     avgRating: 4.5,
@@ -226,7 +225,7 @@ const myProducts = [
   },
   {
     name: "Suede Chelsea Boots",
-    price: "$175",
+    price: 17,
     cat: "Shoes",
     img: "images/chelsea.jpg",
     avgRating: 4.5,
@@ -236,7 +235,7 @@ const myProducts = [
   },
   {
     name: "Workplace Satchel",
-    price: "$240",
+    price: 24,
     cat: "Handbags",
     img: "images/satchel.jpg",
     avgRating: 4.5,
@@ -246,7 +245,7 @@ const myProducts = [
   },
   {
     name: "Graphic Streetwear Tee",
-    price: "$40",
+    price: 40,
     cat: "Clothes",
     img: "images/streetwear.jpg",
     avgRating: 4.5,
@@ -256,7 +255,7 @@ const myProducts = [
   },
   {
     name: "Ankle Cuff Bangle",
-    price: "$55",
+    price: 55,
     cat: "Jewelry",
     img: "images/bangle.jpg",
     avgRating: 4.5,
@@ -266,7 +265,7 @@ const myProducts = [
   },
   {
     name: "Velvet Mules",
-    price: "$125",
+    price: 120,
     cat: "Shoes",
     img: "images/mules.jpg",
     avgRating: 4.5,
@@ -276,7 +275,7 @@ const myProducts = [
   },
   {
     name: "Woven Bucket Bag",
-    price: "$95",
+    price: 95,
     cat: "Handbags",
     img: "images/satinbag.jpg",
     avgRating: 4.5,
@@ -286,7 +285,7 @@ const myProducts = [
   },
   {
     name: "Leather Biker Jacket",
-    price: "$290",
+    price: 29,
     cat: "Clothes",
     img: "images/biker.jpg",
     avgRating: 4.5,
@@ -296,7 +295,7 @@ const myProducts = [
   },
   {
     name: "Sapphire Nose Stud",
-    price: "$80",
+    price: 800,
     cat: "Jewelry",
     img: "images/nosestud.jpg",
     avgRating: 4.5,
@@ -307,7 +306,44 @@ const myProducts = [
   },
 ];
 
-// 3. Core Display Function
+import {
+  updateCart,
+  showCart,
+  updateBadge,
+  getCart,
+  calculateSubtotal,
+  calculateShipping,
+  calculateTotal,
+  getCartCount,
+} from "../cart/script.js";
+
+window.addProduct = function (name, price, img) {
+  const id = crypto.randomUUID();
+  updateCart(name, price, img, id);
+  openDrawer();
+};
+
+function openDrawer() {
+  const drawer = document.getElementById("cart-drawer");
+  const cartContainer = document.getElementById("cartContainer");
+  const closeButton = document.getElementById("closeCart");
+  closeButton.addEventListener("click", function () {
+    drawer.close();
+  });
+
+  drawer.addEventListener("click", (e) => {
+    if (e.target === drawer) {
+      drawer.close();
+    }
+  });
+
+  drawer.showModal();
+  cartContainer.innerHTML = "";
+  cartContainer.appendChild(showCart());
+}
+
+updateBadge();
+
 function renderProducts(productsToDisplay) {
   const grid = document.getElementById("product-grid");
   if (!grid) return;
@@ -337,11 +373,11 @@ function renderProducts(productsToDisplay) {
                 <h3>${product.name}</h3>
                 <div class="rating-display" onclick="openFeedback('${product.name}')">⭐ ${product.rating || 5.0}</div>
                 <div class="size-options">${sizeHTML}</div>
-                <p class="price">${product.price}</p>
+                <p class="price">${"$" + product.price}</p>
             </div>
             <div class="button-group">
                 <button class="buy-now-btn" onclick="buyNow('${product.name}')">BUY NOW</button>
-                <button class="shop-btn" onclick="updateCart('${product.name}', '${product.price}', '${product.img}')">ADD TO CART</button>
+                <button class="shop-btn" onclick="addProduct('${product.name}', '${product.price}', '${product.img}')">ADD TO CART</button>
             </div>
         `;
     grid.appendChild(card);
@@ -357,37 +393,7 @@ function selectSize(btn) {
   btn.classList.add("selected");
 }
 // State variable
-let cartItems = JSON.parse(localStorage.getItem("myCart")) || [];
 let wishlistItems = 0;
-let cartItemsNames = [];
-let wishlistItemsNames = 0;
-let totalPrice = 0;
-
-function updateCart(name, price, img) {
-  const newItem = { name: name, price: price, img: img };
-  cartItems.push(newItem);
-  // document.getElementById("cart-count").innerText = cartItems;
-
-  localStorage.setItem("myCart", JSON.stringify(cartItems));
-
-  const numericPrice = Number(price.replace("$", ""));
-  totalPrice += numericPrice;
-
-  const totalDisplay = document.getElementById("cart-total");
-  if (totalDisplay) {
-    totalDisplay.innerText = `$${totalPrice.toFixed(2)}`;
-  }
-
-  const list = document.getElementById("cart-items-list");
-  if (list) {
-    const item = document.createElement("div");
-    item.className = "cart-item-row";
-    item.innerHTML = `<span>${name}</span> <span>${price}</span>`;
-    list.appendChild(item);
-  }
-  console.log(newItem);
-}
-
 function updateWishlist(btn, name) {
   if (btn.innerText === "♡") {
     btn.innerText = "❤️";
@@ -397,16 +403,6 @@ function updateWishlist(btn, name) {
     wishlistItems--;
   }
   document.getElementById("wishlist-count").innerText = wishlistItems;
-}
-
-function openCart() {
-  document.getElementById("cart-drawer").classList.add("open");
-  document.getElementById("cart-overlay").style.display = "block";
-}
-
-function closeCart() {
-  document.getElementById("cart-drawer").classList.remove("open");
-  document.getElementById("cart-overlay").style.display = "none";
 }
 
 function openFeedback(name) {
@@ -435,7 +431,6 @@ buttons.forEach((button) => {
   });
 });
 
-// 5. Execution
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(myProducts);
 });

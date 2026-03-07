@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout</title>
+    <title>Your shopping cart | OVERLOOK</title>
     <link rel="stylesheet" href="style.css" />
 
     <link
@@ -20,22 +20,16 @@
       </marquee>
     </div>
     <header-main></header-main>
-    <main id="cart-drawer" class="cart">
-      <div class="cart-header">
-        <h2>YOUR CART</h2>
-      </div>
-
-      <div id="cart-items-list"></div>
-
-      <div class="cart-footer">
-        <div class="total-section">
-          <strong>TOTAL:</strong> <span id="cart-total">$0.00</span>
-        </div>
-        <button class="buy-now-btn" onclick="processCheckout()">
-          CHECKOUT NOW
-        </button>
-      </div>
+    <main id="cart-page" class="cart">
+      <h2>5 ITEMS IN YOUR CART</h2>
+      <div id="cart"></div>
     </main>
     <footer-main></footer-main>
   </body>
+  <script type="module">
+    import { refreshCartUI, updateBadge } from "./script.js";
+
+    refreshCartUI();
+    updateBadge();
+  </script>
 </html>

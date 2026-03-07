@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fashion Showcase</title>
+    <title>Fashion Showcase | OVERLOOK</title>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="../header.js"></script>
 
@@ -46,29 +46,48 @@
       </button>
     </div>
 
-    <div id="cart-overlay" class="overlay" onclick="closeCart()"></div>
-
-    <div id="cart-drawer" class="drawer">
-      <div class="drawer-header">
-        <h2>YOUR CART</h2>
-        <button class="close-btn" onclick="closeCart()">×</button>
-      </div>
-
-      <div id="cart-items-list"></div>
-
-      <div class="drawer-footer">
-        <div class="total-section">
-          <strong>TOTAL:</strong> <span id="cart-total">$0.00</span>
-        </div>
-        <button class="buy-now-btn" onclick="processCheckout()">
-          CHECKOUT NOW
+    <dialog id="cart-drawer" class="drawer">
+      <div class="cart-header">
+        <h3>
+          <span
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-check-lg"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"
+              /></svg></span
+          >ADDED To CART
+        </h3>
+        <button id="closeCart">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-x"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+            />
+          </svg>
         </button>
       </div>
-    </div>
+      <div id="cartContainer" class="cartContainer">
+        <!-- <div id="cartItems"></div>
+        <div id="summary"></div> -->
+      </div>
+      <a href="../cart/index.html">GO TO CART</a>
+    </dialog>
 
     <main id="product-grid" class="product-grid"></main>
     <footer-main></footer-main>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>

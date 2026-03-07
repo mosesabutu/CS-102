@@ -1,3 +1,5 @@
+import { getCartCount } from "./cart/script.js";
+
 class Header extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -43,14 +45,14 @@ nav a {
   color: #f6f1eb;
   font-weight: 500;
   font-size: 1rem;
-  span {
+  span.sp {
     display: none;
   }
-    i.bi{
-    font-size: 1rem;
-    color: #f6f1eb;
-    
-    }
+  svg {
+  width: 50;
+  height: 50;
+  margin-bottom: -1px;
+  }
 }
 
 #menuToggle {
@@ -131,10 +133,10 @@ nav a {
       padding: 1rem 0;
       width: 100%;
       border-bottom: 1px solid #3d3b38;
-      svg {
+      svg, span{
         display: none;
       }
-      span {
+      span.sp {
         display: block;
       }
     }
@@ -156,10 +158,13 @@ nav a {
           <a href="/trustees/index.html">Trustees</a>
           <a href="/inquiry/index.html">Inquiry</a>
           <a href="/cart/index.html">
-           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-           <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
-           </svg>
-         <span>Cart</span></a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+          </svg>
+          <span>
+          ${getCartCount() ? getCartCount() : 0}
+          </span>
+         <span class="sp">Cart: ${getCartCount()}</span></a>
         </nav>
       <div class="nav-overlay" id="overlay"></div>
 
@@ -178,7 +183,6 @@ nav a {
       overlay.classList.add("active");
       toggleBtn.classList.add("hidden");
     };
-
     const closeMenu = () => {
       nav.classList.remove("active");
       overlay.classList.remove("active");

@@ -4,6 +4,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 :root {
   --primary-black: #2c2a28;
   --soft-grey: #f4f4f4;
@@ -204,27 +212,103 @@ header.ctr h1 {
 }
 
 .drawer {
+  margin-left: auto;
+  margin-right: 0;
+  height: 100vh;
+  max-height: 100vh;
+  /* width: 400px; */
+  border: none;
+  padding: 1rem;
   position: fixed;
   top: 0;
-  right: -400px;
-  width: 350px;
-  height: 100%;
-  background: white;
-  z-index: 1002;
-  transition: 0.4s; /* Smooth sliding effect */
-  padding: 20px;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    width: 80%;
+    background-color: #d4c092;
+    color: #2c2a28;
+    font-size: 1.5rem;
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+  }
 }
 
-.drawer.open {
-  right: 0;
+.drawer::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
 }
 
-.drawer-header {
+.cartContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+  gap: 0.5rem;
+  padding-bottom: 2rem;
+
+  .toHide {
+    display: none;
+  }
+}
+.cart-header {
   display: flex;
   justify-content: space-between;
+  gap: 4rem;
+
+  h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-align: center;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 0.5rem;
+      margin-bottom: -0.4rem;
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+#cartItems {
+  display: flex;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  width: 20rem;
+  gap: 1.5rem;
+  img {
+    width: 6rem;
+    height: 8.5rem;
+    object-fit: cover;
+  }
+  button {
+    display: none;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+}
+#summary {
+  h3 {
+    font-size: 1rem;
+    padding-top: 2rem;
+    font-weight: 600;
+  }
 }
 
 /* Size Chips Styling */
