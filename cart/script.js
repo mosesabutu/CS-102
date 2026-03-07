@@ -25,20 +25,26 @@ export function updateCart(name, price, img, id) {
   const cart = getCart();
   const existing = cart.find((item) => item.name === name);
 
+  let targetItem; // This will hold the item that was changed
+
   if (existing) {
     existing.quantity += 1;
+    targetItem = existing;
   } else {
-    cart.push({
+    targetItem = {
       id: id,
       name,
       price: Number(price),
       img: "../product/" + img,
       quantity: 1,
-    });
+    };
+    cart.push(targetItem);
   }
 
   saveCart(cart);
   updateBadge();
+
+  return targetItem;
 }
 
 export function increaseQuantity(id) {
@@ -103,6 +109,7 @@ export function updateBadge() {
 
 export function showCart() {
   const cart = getCart();
+  const lastItem = cart.at(-1);
 
   const wrapper = document.createElement("div");
   wrapper.id = "#cartDrawer";
@@ -141,7 +148,7 @@ export function showCart() {
 
   wrapper.appendChild(summary);
 
-  return wrapper;
+  return { wrapper, lastItem };
 }
 
 export function refreshCartUI() {

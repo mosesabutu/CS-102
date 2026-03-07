@@ -319,11 +319,13 @@ import {
 
 window.addProduct = function (name, price, img) {
   const id = crypto.randomUUID();
-  updateCart(name, price, img, id);
-  openDrawer();
+  const lastUpdatedItem = updateCart(name, price, img, id);
+
+  showCart();
+  openDrawer(lastUpdatedItem);
 };
 
-function openDrawer() {
+function openDrawer(lastUpdatedItem) {
   const drawer = document.getElementById("cart-drawer");
   const cartContainer = document.getElementById("cartContainer");
   const closeButton = document.getElementById("closeCart");
@@ -339,7 +341,28 @@ function openDrawer() {
 
   drawer.showModal();
   cartContainer.innerHTML = "";
-  cartContainer.appendChild(showCart());
+
+  const card = document.createElement("div");
+  card.id = "cartItems";
+  card.innerHTML = `
+      <img src="${lastUpdatedItem.img}" width="60"/>
+      <div class ="itemInfo">
+      <p>${lastUpdatedItem.name}</p>
+      <p>$${lastUpdatedItem.price}</p>
+      <span>Qty: ${lastUpdatedItem.quantity}</span>
+      </div>
+    `;
+  cartContainer.appendChild(card);
+
+  const summary = document.createElement("div");
+  summary.id = "summary";
+
+  summary.innerHTML = `
+    <p>Cart Subtotal{${getCartCount() + " items"}}: </p>
+    <p>    $${calculateSubtotal().toFixed(2)}</p>
+
+  `;
+  cartContainer.appendChild(summary);
 }
 
 updateBadge();
