@@ -52,8 +52,30 @@ main {
   flex-direction: column;
   margin: 1rem;
   overflow-x: hidden;
-  h2 {
+  min-height: 50dvh;
+
+  .empty-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
     text-align: center;
+    h1 {
+      font-size: 3rem;
+    }
+    button {
+      border: none;
+      padding: 1rem;
+      background-color: #d4c092;
+      cursor: pointer;
+      font-size: 2rem;
+      a {
+        text-decoration: none;
+        color: #2c2a28;
+        font-weight: 600;
+      }
+    }
   }
 }
 #wrapper {

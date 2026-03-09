@@ -179,8 +179,8 @@ export function showCart() {
     </div>`
       : `
     <div class="empty-cart">
-      <h2>Your cart is empty</h2>
-      <button><a href="../product/index.html">GO SHOPPING</a></button>
+      <h1>YOUR CART IS EMPTY</h1>
+      <button><a href="../product/index.html">START SHOPPING</a></button>
     </div>`;
 
   main.innerHTML = mainPage;
