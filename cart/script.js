@@ -47,13 +47,13 @@ export function updateCart(name, price, img, id) {
   return targetItem;
 }
 
-export function increaseQuantity(id) {
+export function updateQuantity(id, newQuantity) {
   const cart = getCart();
   const item = cart.find((i) => i.id === id);
-  if (item) item.quantity += 1;
+  if (item) item.quantity = Number(newQuantity);
 
   saveCart(cart);
-  refreshCartUI();
+  showCart();
   updateBadge();
 }
 
@@ -67,8 +67,25 @@ export function decreaseQuantity(id) {
     .filter((item) => item.quantity > 0);
 
   saveCart(cart);
-  refreshCartUI();
   updateBadge();
+}
+
+export function removeFromCart(id) {
+  const cart = getCart();
+  const item = cart.find((i) => String(i.id) === String(id));
+
+  // Ask for confirmation using the item name if found
+  const itemName = item ? item.name : "this item";
+  const confirmed = confirm(
+    `Are you sure you want to remove ${itemName} from your cart?`,
+  );
+
+  if (confirmed) {
+    const updatedCart = cart.filter((i) => String(i.id) !== String(id));
+    saveCart(updatedCart);
+    showCart();
+    updateBadge();
+  }
 }
 
 // =====================
@@ -109,71 +126,89 @@ export function updateBadge() {
 
 export function showCart() {
   const cart = getCart();
+  const main = document.getElementById("cart-page");
+  if (!main) return;
 
-  const wrapper = document.createElement("div");
-  wrapper.id = "wrapper";
+  const mainPage =
+    cart.length > 0
+      ? `
+    <h2><span id="cartCount">${cart.length}</span> ITEMS IN YOUR CART</h2>
+    <div id="wrapper">
+      <div id="cartWrapper">
+        ${cart
+          .map((item) => {
+            // Generate 10 options and mark the current quantity as selected
+            let options = "";
+            for (let i = 1; i <= 10; i++) {
+              const isSelected = item.quantity === i ? "selected" : "";
+              options += `<option value="${i}" ${isSelected}>${i}</option>`;
+            }
 
-  const cartWrapper = document.createElement("div");
-  cartWrapper.id = "cartWrapper";
+            return `
+          <div id="cartItem">
+            <img src="${item.img}" alt="${item.name}" width="60"/>
+            <div class="itemInfo">
+              <p>${item.name}</p>
+              <p>$${item.price}</p>
+              <div class="qty-controls">
 
-  cart.forEach((item) => {
-    const subtotal = item.price * item.quantity;
+   
+              <label for="qty-${item.id}">Qty: </label>
+              <select data-qty-select="${item.id}" id="qty-${item.id}">
+                ${options}
+              </select>
+              <button class="remove-btn" data-remove="${item.id}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+</svg></button>
+ </div>
+            </div>
+          </div>`;
+          })
+          .join("")}
+       </div>
+       <div class="summary">
+          <p>Subtotal: (${getCartCount()} items)
+            <span>$${calculateSubtotal().toFixed(2)}</span> 
+          </p>
+       </div>
+    </div>
+    <div class="cartFooter">
+      <button><a href="../product/index.html">BACK TO SHOPPING</a></button>
+      <button>CHECKOUT</button>
+    </div>`
+      : `
+    <div class="empty-cart">
+      <h2>Your cart is empty</h2>
+      <button><a href="../product/index.html">GO SHOPPING</a></button>
+    </div>`;
 
-    const card = document.createElement("div");
-    card.style.borderBottom = "1px solid #ddd";
-    card.style.padding = "10px 0";
-    card.id = "cartItems";
-    card.class = "cartItems";
+  main.innerHTML = mainPage;
 
-    card.innerHTML = `
-      <img src="${item.img}" width="60"/>
-      <div class ="itemInfo">
-      <p>${item.name}</p>
-      <p>$${item.price}</p>
-      <span>Qty: ${item.quantity}</span>
-      <button data-inc="${item.id}">+</button>
-      <button data-dec="${item.id}">-</button>
-      </div>
-    `;
-
-    cartWrapper.appendChild(card);
-  });
-
-  const summary = document.createElement("div");
-  summary.id = "summary";
-  summary.innerHTML = `
-  <br>
-    <p>Subtotal: {${getCartCount()} items} </p>
-     <span>$${calculateSubtotal().toFixed(2)}</span> 
-    <p class = "toHide">Shipping: $${calculateShipping().toFixed(2)}</p>
-    <h2 class = "toHide">Total:    $${calculateTotal().toFixed(2)}</h2>
-  `;
-  wrapper.appendChild(cartWrapper);
-  wrapper.appendChild(summary);
-
-  return wrapper;
+  attachQuantityEvents();
 }
 
 export function refreshCartUI() {
-  const container = document.getElementById("cart");
-  if (!container) return;
-
-  container.innerHTML = "";
-  container.appendChild(showCart());
-
-  attachButtonEvents();
+  // const main = document.getElementById("cart-page");
+  // if (!main) return;
+  // main.innerHTML = "";
+  // main.appendChild(showCart());
 }
 
-function attachButtonEvents() {
-  document.querySelectorAll("[data-inc]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      increaseQuantity(btn.dataset.inc);
+function attachQuantityEvents() {
+  document.querySelectorAll("[data-qty-select]").forEach((select) => {
+    select.addEventListener("change", (event) => {
+      // event.target.value gets the 1-10 value from the chosen <option>
+      const newQuantity = event.target.value;
+      const productId = select.dataset.qtySelect;
+
+      updateQuantity(productId, newQuantity);
     });
   });
 
-  document.querySelectorAll("[data-dec]").forEach((btn) => {
+  document.querySelectorAll("[data-remove]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      decreaseQuantity(btn.dataset.dec);
+      removeFromCart(btn.dataset.remove);
     });
   });
 }

@@ -21,19 +21,18 @@
     </div>
     <header-main></header-main>
     <main id="cart-page" class="cart">
-      <h2><span id="cartCount"></span> ITEMS IN YOUR CART</h2>
+      <!-- <h2><span id="cartCount"></span> ITEMS IN YOUR CART</h2>
       <div id="cart"></div>
       <div class="cartFooter">
         <button><a href="../product/index.html">BACK TO SHOPPING</a></button
         ><button>CHECKOUT</button>
-      </div>
+      </div> -->
     </main>
     <footer-main></footer-main>
   </body>
   <script type="module">
-    import { refreshCartUI, updateBadge, getCartCount } from "./script.js";
-    document.getElementById("cartCount").innerText = getCartCount();
-    refreshCartUI();
+    import { showCart, updateBadge, getCartCount } from "./script.js";
+    showCart();
     updateBadge();
   </script>
 </html>
